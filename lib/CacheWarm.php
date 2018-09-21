@@ -1,4 +1,5 @@
 <?php
+namespace Snowdog\DevTest\Libraries;
 
 interface Old_Legacy_CacheWarmer_Resolver_Interface
 {
