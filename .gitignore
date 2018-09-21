@@ -1,2 +1,5 @@
+#Ignore vendo folder and it's contents
 /vendor
+
+#Ignore config file
 conf.ini
