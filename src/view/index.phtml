@@ -29,8 +29,23 @@
 
     <div>
         <h1>Cache Warmer</h1>
-        <?php if ($this->user): ?>
+        <?php if ($this->user): $analyticsData = $this->getAnalytics();?>
             <p class="bg-success">Hello <?= $this->user->getDisplayName() ?>!</p>
+
+            <div>
+                <h3>Analyics:</h3>
+                <div>
+                    <div>
+                        <b>Number of user pages:</b> <?= $analyticsData['user_pages'] ?>
+                    </div>
+                    <div>
+                        <b>Least recently visited page:</b> <?= $analyticsData['last_visited_page'] ?>
+                    </div>
+                    <div>
+                        <b>Most recently visited page:</b> <?= $analyticsData['recent_visited_page'] ?>
+                    </div>  
+                </div>
+            </div>
 
             <div class="padded">
                 <form class="form-inline" method="post" action="/website">

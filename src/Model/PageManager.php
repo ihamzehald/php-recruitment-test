@@ -54,4 +54,29 @@ class PageManager
         return $query->execute();
 
     }
+
+    /**
+     * @author Hamza al Darawsheh 23 Sep 2018 <ihamzehald@gmail.com>
+     * @return array as a list of all pages that related to the logged in user
+     * Ticket Ref: Task 4
+     */
+    public function getAllUserPages($allUserWebsites){
+        //get all logged in user websites id's
+        $allUserWebsitesIds = [];
+
+        foreach($allUserWebsites as $userWebsite){
+            $allUserWebsitesIds[] = $userWebsite->getWebsiteId();
+        }
+
+        $allUserWebsitesIdsString = implode(',', $allUserWebsitesIds);
+
+        //get all the pages that related to user websites id's
+        $query = $this->database->prepare("SELECT * FROM pages WHERE website_id IN ({$allUserWebsitesIdsString}) ORDER BY last_page_visit DESC");
+        $query->execute();
+
+        return $query->fetchAll(\PDO::FETCH_CLASS, Page::class);;
+    }
+
+
+
 }
