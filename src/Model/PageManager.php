@@ -21,7 +21,7 @@ class PageManager
     {
         $websiteId = $website->getWebsiteId();
         /** @var \PDOStatement $query */
-        $query = $this->database->prepare('SELECT * FROM pages WHERE website_id = :website');
+        $query = $this->database->prepare('SELECT * FROM pages WHERE website_id = :website ORDER BY last_page_visit DESC');
         $query->bindParam(':website', $websiteId, \PDO::PARAM_INT);
         $query->execute();
         return $query->fetchAll(\PDO::FETCH_CLASS, Page::class);
@@ -36,5 +36,22 @@ class PageManager
         $statement->bindParam(':website', $websiteId, \PDO::PARAM_INT);
         $statement->execute();
         return $this->database->lastInsertId();
+    }
+
+    /**
+     * @author Hamza al Darawsheh 22 Sep 2018 <ihamzehald@gmail.com>
+     * @param $page_id integer as the warmed page_id
+     * Ticket Ref: task_3
+     */
+    public function updateLastPageVisit($page_id)
+    {
+        $current_datetime = date("Y-m-d H:i:s");
+
+        $query = $this->database->prepare('UPDATE pages set last_page_visit = :current_datetime WHERE page_id = :page_id');
+        $query->bindParam('current_datetime', $current_datetime, \PDO::PARAM_STR);
+        $query->bindParam('page_id', $page_id, \PDO::PARAM_INT);
+
+        return $query->execute();
+
     }
 }
