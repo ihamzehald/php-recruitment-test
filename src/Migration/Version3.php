@@ -5,12 +5,16 @@ namespace Snowdog\DevTest\Migration;
 use Snowdog\DevTest\Core\Database;
 use Snowdog\DevTest\Model\PageManager;
 
+/**
+ * @author Hamza al Darawsheh 22 Sep 2018 <ihamzehald@gmail.com>
+ * DB Migration file to add last_page_visit column to pages table
+ * Ticket Ref: task_3
+ */
 class Version3
 {
+
     /**
-     * @author Hamza al Darawsheh 22 Sep 2018 <ihamzehald@gmail.com>
-     * DB Migration file to add last_page_visit column to pages table
-     * Ticket Ref: task_3
+     * @var Database|\PDO
      */
     private $database;
 
