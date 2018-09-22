@@ -39,6 +39,15 @@ class Page
     {
         return $this->website_id;
     }
+
+    /**
+     * @author Hamza al Darawsheh 22 Sep 2018 <ihamzehald@gmail.com>
+     * @return str
+     */
+    public function getLastPageVisit()
+    {
+        return $this->last_page_visit;
+    }
     
     
 }
