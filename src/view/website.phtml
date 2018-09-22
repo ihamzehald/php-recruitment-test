@@ -49,11 +49,15 @@
                     <tr>
                         <th>#</th>
                         <th>URL</th>
+                        <th>Last visit</th>
+
                     </tr>
+
                     <?php foreach ($this->getPages() as $page): /** @var \Snowdog\DevTest\Model\Page $page */ ?>
                         <tr>
                             <td><?= $page->getPageId() ?></td>
                             <td><?= $page->getUrl() ?></td>
+                            <td><?= $page->last_page_visit ?></td>
                         </tr>
                     <?php endforeach ?>
                 </table>
