@@ -47,6 +47,7 @@ CommandRepository::registerCommand('warm [id]', WarmCommand::class);
 
 Menu::register(LoginMenu::class, 200);
 Menu::register(RegisterMenu::class, 250);
+Menu::register(VarnishMenu::class, 11);
 Menu::register(WebsitesMenu::class, 10);
 
 Migrations::registerComponentMigration('Snowdog\\DevTest', 4);
