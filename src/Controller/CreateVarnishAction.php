@@ -12,6 +12,11 @@ class CreateVarnishAction
      */
     private $varnishManager;
 
+    /**
+     * @var UserManager
+     */
+    private $userManager;
+
     public function __construct(UserManager $userManager, VarnishManager $varnishManager)
     {
         $this->userManager = $userManager;
@@ -23,7 +28,14 @@ class CreateVarnishAction
         $ip = $_POST['ip'];
 
         // TODO - add module logic here
-
+        if (isset($_SESSION['login'])) {
+            $user = $this->userManager->getByLogin($_SESSION['login']);
+            if($user){
+                if($this->varnishManager->create($user, $ip)){
+                    $_SESSION['flash'] = 'Varnish ' . $ip . ' added!';
+                }
+            }
+        }
         header('Location: /varnish');
     }
 }
