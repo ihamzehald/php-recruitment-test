@@ -6,7 +6,7 @@ use Snowdog\DevTest\Core\Database;
 
 /**
  * @author Hamza al Darawsheh 24 Sep 2018 <ihamzehald@gmail.com>
- * varnish table model manger
+ * varnish table model manager
  * Ticket Ref: task 5
  */
 class VarnishManager
