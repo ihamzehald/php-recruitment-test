@@ -4,6 +4,11 @@ namespace Snowdog\DevTest\Model;
 
 use Snowdog\DevTest\Core\Database;
 
+/**
+ * @author Hamza al Darawsheh 24 Sep 2018 <ihamzehald@gmail.com>
+ * varnish table model manger
+ * Ticket Ref: task 5
+ */
 class VarnishManager
 {
 
@@ -19,7 +24,12 @@ class VarnishManager
 
     public function getAllByUser(User $user)
     {
-        // TODO: add logic here
+        $userId = $user->getUserId();
+        /** @var \PDOStatement $query */
+        $query = $this->database->prepare('SELECT * FROM varnish WHERE user_id = :user');
+        $query->bindParam(':user', $userId, \PDO::PARAM_INT);
+        $query->execute();
+        return $query->fetchAll(\PDO::FETCH_CLASS, Varnish::class);
     }
 
     public function getWebsites(Varnish $varnish)
@@ -34,8 +44,15 @@ class VarnishManager
 
     public function create(User $user, $ip)
     {
-        // TODO: add logic here
+        $userId = $user->getUserId();
+        /** @var \PDOStatement $statement */
+        $statement = $this->database->prepare('INSERT INTO varnish (ip, user_id) VALUES (:ip, :user_id)');
+        $statement->bindParam(':ip', $ip, \PDO::PARAM_STR);
+        $statement->bindParam(':user_id', $userId, \PDO::PARAM_INT);
+        $statement->execute();
+        return $this->database->lastInsertId();
     }
+
 
     public function link($varnish, $website)
     {

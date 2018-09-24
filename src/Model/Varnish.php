@@ -2,6 +2,11 @@
 
 namespace Snowdog\DevTest\Model;
 
+/**
+ * @author Hamza al Darawsheh 24 Sep 2018 <ihamzehald@gmail.com>
+ * Varnish table model
+ * Ticket Ref: task 5
+ */
 class Varnish
 {
 
@@ -26,7 +31,7 @@ class Varnish
     /**
      * @return string
      */
-    public function getIp()
+    public function getIP()
     {
         return $this->ip;
     }
