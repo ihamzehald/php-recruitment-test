@@ -16,3 +16,9 @@ body {
 .padded {
     padding: 15px;
 }
+
+
+/***** Margins *****/
+.mgl-10{
+    margin-left: 10px;
+}
