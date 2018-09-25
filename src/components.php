@@ -35,7 +35,7 @@ RouteRepository::registerRoute('POST', '/page', CreatePageAction::class, 'execut
 //varnish routes
 RouteRepository::registerRoute('GET', '/varnish', VarnishesAction::class, 'execute');
 RouteRepository::registerRoute('POST', '/varnish', CreateVarnishAction::class, 'execute');
-RouteRepository::registerRoute('POST', '/create-varnish-link', CreateVarnishLinkAction::class, 'execute');
+RouteRepository::registerRoute('POST', '/varnish-link', CreateVarnishLinkAction::class, 'execute');
 
 
 
@@ -50,4 +50,4 @@ Menu::register(RegisterMenu::class, 250);
 Menu::register(VarnishMenu::class, 11);
 Menu::register(WebsitesMenu::class, 10);
 
-Migrations::registerComponentMigration('Snowdog\\DevTest', 4);
+Migrations::registerComponentMigration('Snowdog\\DevTest', 5);

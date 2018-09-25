@@ -5,7 +5,9 @@ namespace Snowdog\DevTest\Menu;
 /**
  * Class VarnishMenu
  * @package Snowdog\DevTest\Menu
- * @author
+ * @author Hamza al Darawsheh 24 Sep 2018 <ihamzehald@gmail.com>
+ * Creating varnish menu
+ * Ticket Ref: task 5
  */
 class VarnishMenu extends AbstractMenu
 {

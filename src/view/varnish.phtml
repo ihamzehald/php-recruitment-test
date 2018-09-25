@@ -11,7 +11,8 @@
     <title>Varnishes - Cache Warmer</title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="/css/style.css" rel="stylesheet">
 </head>
@@ -30,7 +31,7 @@
     <div>
 
         <div class="padded">
-            <form class="form-inline" method="post" action="/varnish">
+            <form id="create_varnish_form" class="form-inline" method="post" action="/varnish">
                 <div class="form-group">
                     <label for="exampleInputName2">IP</label>
                     <input type="text" name="ip" class="form-control" id="exampleInputName2"
@@ -57,7 +58,7 @@
                     </tr>
                     <?php foreach ($this->getWebsites() as $website): /** @var \Snowdog\DevTest\Model\Website $website */ ?>
                         <tr>
-                            <td><input type="checkbox" <?= in_array($website->getWebsiteId(), $websiteIds) ? 'checked="checked"' : '' ?>/></td>
+                            <td><input type="checkbox" class="varnish-website-link" data-varnish_id = "<?= $varnish->getId() ?>" data-website_id="<?= $website->getWebsiteId() ?>" <?= in_array($website->getWebsiteId(), $websiteIds) ? 'checked="checked"' : '' ?>/></td>
                             <td><?= $website->getName() ?></td>
                             <td><?= $website->getHostname() ?></td>
                         </tr>
@@ -70,6 +71,9 @@
 
 </div><!-- /.container -->
 
-
+<script type="text/javascript" src="/js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="/js/bootstrap-notify.min.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/js/varnish.js"></script>
 </body>
 </html>

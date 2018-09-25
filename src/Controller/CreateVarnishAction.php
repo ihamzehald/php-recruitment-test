@@ -23,11 +23,15 @@ class CreateVarnishAction
         $this->varnishManager = $varnishManager;
     }
 
+    /**
+     * @author Hamza al Darawsheh 24 Sep 2018 <ihamzehald@gmail.com>
+     * Create varnish
+     * Ticket Ref: task 5
+     */
     public function execute()
     {
         $ip = $_POST['ip'];
 
-        // TODO - add module logic here
         if (isset($_SESSION['login'])) {
             $user = $this->userManager->getByLogin($_SESSION['login']);
             if($user){
