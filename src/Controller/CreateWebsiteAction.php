@@ -31,7 +31,7 @@ class CreateWebsiteAction
             if (isset($_SESSION['login'])) {
                 $user = $this->userManager->getByLogin($_SESSION['login']);
                 if ($user) {
-                    if ($this->websiteManager->create($user, $name, $hostname)) {
+                    if ($this->websiteManager->crephpate($user, $name, $hostname)) {
                         $_SESSION['flash'] = 'Website ' . $name . ' added!';
                     }
                 }

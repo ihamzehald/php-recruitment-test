@@ -77,6 +77,27 @@ class PageManager
         return $query->fetchAll(\PDO::FETCH_CLASS, Page::class);;
     }
 
+    /**
+     * @author Hamza al Darawsheh 29 Sep 2018 <ihamzehald@gmail.com>
+     * @param $websiteId
+     * @param $pageUrl
+     * @return mixed
+     * Returns of this page exists or not
+     * Note:
+     * select exists or select count(*) could be used here for better performance but PDO returned the query it's self
+     * instead of returning the result!
+     * Ticket Ref: task_6
+     */
+    public function pageExists($websiteId, $pageUrl){
+
+        $query = $this->database->prepare(" SELECT * FROM pages WHERE website_id = :website_id AND url=:page_url ");
+        $query->bindParam(":website_id", $websiteId, \PDO::PARAM_INT);
+        $query->bindParam(":page_url", $pageUrl, \PDO::PARAM_STR);
+        $query->execute();
+        return $query->fetch();
+
+    }
+
 
 
 }

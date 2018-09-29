@@ -39,7 +39,9 @@ class WebsiteManager
 
     public function create(User $user, $name, $hostname)
     {
+
         $userId = $user->getUserId();
+
         /** @var \PDOStatement $statement */
         $statement = $this->database->prepare('INSERT INTO websites (name, hostname, user_id) VALUES (:name, :host, :user)');
         $statement->bindParam(':name', $name, \PDO::PARAM_STR);
@@ -47,6 +49,23 @@ class WebsiteManager
         $statement->bindParam(':user', $userId, \PDO::PARAM_INT);
         $statement->execute();
         return $this->database->lastInsertId();
+    }
+
+    /**
+     * @author Hamza al Darawsheh 29 Sep 2018 <ihamzehald@gmail.com>
+     * @param $name
+     * @return mixed
+     * Get website by host name
+     * Ticket Ref: task_6
+     */
+    public function getByHost($name){
+
+        $hostLikeCondition = "%{$name}%";
+
+        $query = $this->database->prepare(" SELECT * FROM websites WHERE hostname LIKE ?");
+        $query->bindParam(1, $hostLikeCondition, \PDO::PARAM_STR);
+        $query->execute();
+        return $query->fetch();
     }
 
 
