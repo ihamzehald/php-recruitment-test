@@ -23,7 +23,7 @@ body {
     margin-left: 10px;
 }
 
-/*** ovverriding file input ***/
+/*** overriding file input ***/
 .btn-file {
     position: relative;
     overflow: hidden;
