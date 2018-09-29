@@ -1,2 +1,14 @@
+# ignore vendor dir
 /vendor
+
+# ignore config files
 conf.ini
+
+# ignore PHPStorm IDE workplace folder
+.idea
+
+# ignore uploads folder contents
+uploads/*
+
+# keep uploads empty folder
+!uploads/.keep

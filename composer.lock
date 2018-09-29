@@ -1,11 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "439e688c668e4f122770d878a5d3d582",
-    "content-hash": "f266a9777fe2f1720e53a553d8302324",
+    "content-hash": "29579daf93f7182af394809d02b6bb29",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -32,7 +31,50 @@
                 "MIT"
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
-            "time": "2014-12-30 15:22:37"
+            "time": "2014-12-30T15:22:37+00:00"
+        },
+        {
+            "name": "ihamzehald/snow-dog-sitemap-parser",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ihamzehald/snow-dog-sitemap-parser.git",
+                "reference": "a53f42e75c4625009f10574a418d1367571a11cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ihamzehald/snow-dog-sitemap-parser/zipball/a53f42e75c4625009f10574a418d1367571a11cf",
+                "reference": "a53f42e75c4625009f10574a418d1367571a11cf",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.2.10"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SnowDog\\Tools\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hamza al darawsheh",
+                    "email": "ihamzehald@gmail.com"
+                }
+            ],
+            "description": "Sitemap parser that related to Snowdog task 6",
+            "keywords": [
+                "Sitemap",
+                "Snowdog",
+                "cli",
+                "console",
+                "xml"
+            ],
+            "time": "2018-09-29T19:44:12+00:00"
         },
         {
             "name": "mnapoli/silly",
@@ -76,7 +118,7 @@
                 "micro-framework",
                 "silly"
             ],
-            "time": "2016-02-27 10:11:44"
+            "time": "2016-02-27T10:11:44+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -119,7 +161,7 @@
                 "router",
                 "routing"
             ],
-            "time": "2016-04-18 11:33:20"
+            "time": "2016-04-18T11:33:20+00:00"
         },
         {
             "name": "php-di/invoker",
@@ -162,7 +204,7 @@
                 "invoke",
                 "invoker"
             ],
-            "time": "2016-06-12 09:09:55"
+            "time": "2016-06-12T09:09:55+00:00"
         },
         {
             "name": "php-di/php-di",
@@ -222,7 +264,7 @@
                 "dependency injection",
                 "di"
             ],
-            "time": "2016-06-01 17:23:41"
+            "time": "2016-06-01T17:23:41+00:00"
         },
         {
             "name": "php-di/phpdoc-reader",
@@ -259,7 +301,7 @@
                 "phpdoc",
                 "reflection"
             ],
-            "time": "2015-11-29 10:34:25"
+            "time": "2015-11-29T10:34:25+00:00"
         },
         {
             "name": "symfony/console",
@@ -319,7 +361,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-14 11:18:07"
+            "time": "2016-06-14T11:18:07+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -378,7 +420,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-05-18 14:26:46"
+            "time": "2016-05-18T14:26:46+00:00"
         }
     ],
     "packages-dev": [],

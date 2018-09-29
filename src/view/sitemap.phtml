@@ -1,0 +1,57 @@
+<?php /** @var \Snowdog\DevTest\Controller\SitemapAction $this */ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Upload a sitemap</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<?php \Snowdog\DevTest\Component\Menu::getInstance()->render() ?>
+
+<div class="container">
+
+    <?php if (isset($_SESSION['flash'])): ?>
+        <p class="bg-info"><?= $_SESSION['flash'] ?></p>
+        <?php unset($_SESSION['flash']) ?>
+    <?php endif ?>
+
+    <div>
+
+        <div class="padded text-center">
+            <h1>Sitemap uploader :</h1>
+            <h3>Upload an xml sitemap to create it's website and related pages.</h3>
+            <form id="site_map_upload_form" class="form-inline" enctype="multipart/form-data" method="post" action="/sitemap-upload" data-toggle="validator">
+                <div class="form-group">
+                    <input type="file" name="site_map" class="filestyle" data-icon="false" accept=".xml"  required/>
+                </div>
+                <button type="submit" class="btn btn-primary">Upload sitemap</button>
+            </form>
+        </div>
+
+
+
+    </div>
+
+</div><!-- /.container -->
+
+<script type="text/javascript" src="/js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="/js/bootstrap-notify.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap-filestyle.min.js"></script>
+<script type="text/javascript" src="/js/validator.min.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+
+</body>
+</html>
