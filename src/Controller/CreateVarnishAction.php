@@ -4,6 +4,7 @@ namespace Snowdog\DevTest\Controller;
 
 use Snowdog\DevTest\Model\UserManager;
 use Snowdog\DevTest\Model\VarnishManager;
+use Snowdog\DevTest\Common\CommonFunctions;
 
 class CreateVarnishAction
 {
@@ -21,6 +22,7 @@ class CreateVarnishAction
     {
         $this->userManager = $userManager;
         $this->varnishManager = $varnishManager;
+        CommonFunctions::detectLoginStatus();
     }
 
     /**

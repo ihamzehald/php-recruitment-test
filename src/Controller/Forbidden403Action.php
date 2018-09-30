@@ -3,12 +3,11 @@
 namespace Snowdog\DevTest\Controller;
 use Snowdog\DevTest\Common\CommonFunctions;
 
-class LoginFormAction
+class Forbidden403Action
 {
-
     public function execute()
     {
-        CommonFunctions::detectLoginStatus();
-        require __DIR__ . '/../view/login.phtml';
+
+        require __DIR__ . '/../view/403.phtml';
     }
 }

@@ -4,6 +4,7 @@ namespace Snowdog\DevTest\Controller;
 
 use Snowdog\DevTest\Model\User;
 use Snowdog\DevTest\Model\UserManager;
+use Snowdog\DevTest\Common\CommonFunctions;
 
 class LoginAction
 {
@@ -15,6 +16,8 @@ class LoginAction
     public function __construct(UserManager $userManager)
     {
         $this->userManager = $userManager;
+
+        CommonFunctions::detectLoginStatus();
     }
 
     public function execute()

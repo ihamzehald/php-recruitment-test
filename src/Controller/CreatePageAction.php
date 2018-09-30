@@ -5,6 +5,7 @@ namespace Snowdog\DevTest\Controller;
 use Snowdog\DevTest\Model\PageManager;
 use Snowdog\DevTest\Model\UserManager;
 use Snowdog\DevTest\Model\WebsiteManager;
+use Snowdog\DevTest\Common\CommonFunctions;
 
 class CreatePageAction
 {
@@ -14,6 +15,7 @@ class CreatePageAction
         $this->websiteManager = $websiteManager;
         $this->pageManager = $pageManager;
         $this->userManager = $userManager;
+        CommonFunctions::detectLoginStatus();
     }
 
     public function execute()

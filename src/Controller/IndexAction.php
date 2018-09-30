@@ -6,6 +6,7 @@ use Snowdog\DevTest\Model\User;
 use Snowdog\DevTest\Model\UserManager;
 use Snowdog\DevTest\Model\WebsiteManager;
 use Snowdog\DevTest\Model\PageManager;
+use Snowdog\DevTest\Common\CommonFunctions;
 
 class IndexAction
 {
@@ -35,6 +36,9 @@ class IndexAction
         if (isset($_SESSION['login'])) {
             $this->user = $userManager->getByLogin($_SESSION['login']);
         }
+
+        CommonFunctions::detectLoginStatus();
+
     }
 
     protected function getWebsites()

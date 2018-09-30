@@ -26,6 +26,7 @@ use Snowdog\DevTest\Menu\SitemapMenu;
 use Snowdog\DevTest\Controller\SitemapAction;
 use Snowdog\DevTest\Controller\SitemapUploadAction;
 use Snowdog\DevTest\Command\SitemapCommand;
+use Snowdog\DevTest\Controller\Forbidden403Action;
 
 RouteRepository::registerRoute('GET', '/', IndexAction::class, 'execute');
 RouteRepository::registerRoute('GET', '/login', LoginFormAction::class, 'execute');
@@ -46,16 +47,26 @@ RouteRepository::registerRoute('POST', '/varnish-link', CreateVarnishLinkAction:
 RouteRepository::registerRoute('GET', '/sitemap', SitemapAction::class, 'execute');
 RouteRepository::registerRoute('POST', '/sitemap-upload', SitemapUploadAction::class, 'execute');
 
+//Error routs
+RouteRepository::registerRoute('GET', '/forbidden', Forbidden403Action::class, 'execute');
+
 
 CommandRepository::registerCommand('migrate_db', MigrateCommand::class);
 CommandRepository::registerCommand('warm [id]', WarmCommand::class);
 CommandRepository::registerCommand('sitemap_processor [user_name] [sitemap_path]', SitemapCommand::class);
 
 Menu::register(LoginMenu::class, 200);
-Menu::register(RegisterMenu::class, 250);
-Menu::register(WebsitesMenu::class, 300);
-Menu::register(VarnishMenu::class, 350);
-Menu::register(SitemapMenu::class, 400);
+
+if($_SESSION['login']){
+    Menu::register(WebsitesMenu::class, 300);
+    Menu::register(VarnishMenu::class, 350);
+    Menu::register(SitemapMenu::class, 400);
+}else{
+    Menu::register(RegisterMenu::class, 250);
+}
+
+
+
 
 
 

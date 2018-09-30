@@ -5,7 +5,7 @@ namespace Snowdog\DevTest\Controller;
 use Snowdog\DevTest\Model\UserManager;
 use Snowdog\DevTest\Model\VarnishManager;
 use Snowdog\DevTest\Model\WebsiteManager;
-
+use Snowdog\DevTest\Common\CommonFunctions;
 /**
  * @author Hamza al Darawsheh 29 Sep 2018 <ihamzehald@gmail.com>
  * Class SitemapAction
@@ -39,6 +39,8 @@ class SitemapAction
             $this->user = $this->userManager->getByLogin($_SESSION['login']);
         }
         $this->websiteManager = $websiteManager;
+
+        CommonFunctions::detectLoginStatus();
     }
 
     public function execute() {
