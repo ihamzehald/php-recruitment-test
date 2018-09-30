@@ -6,6 +6,7 @@ use Snowdog\DevTest\Model\UserManager;
 use Snowdog\DevTest\Model\Varnish;
 use Snowdog\DevTest\Model\VarnishManager;
 use Snowdog\DevTest\Model\WebsiteManager;
+use Snowdog\DevTest\Common\CommonFunctions;
 
 class VarnishesAction
 {
@@ -33,6 +34,9 @@ class VarnishesAction
             $this->user = $this->userManager->getByLogin($_SESSION['login']);
         }
         $this->websiteManager = $websiteManager;
+
+        CommonFunctions::detectLoginStatus();
+
     }
 
     public function getVarnishes()

@@ -17,7 +17,7 @@ class CommonFunctions
        // die(print_r($parseResult));
         if (empty($parseResult['errors_list'])) {
 
-            $website = $websiteManager->getByHost($parseResult['host']);
+            $website = $websiteManager->getByHost($parseResult['host'], $user->getUserId());
 
             $websiteId = null;
 
@@ -28,6 +28,7 @@ class CommonFunctions
             } else {
                 $websiteId = $website['website_id'];
             }
+
 
 
             if ($websiteId) {
@@ -65,5 +66,31 @@ class CommonFunctions
         }
 
         return $result;
+    }
+
+
+    /**
+     * @author Hamza al Darawsheh 30 Sep 2018 <ihamzehald@gmail.com>
+     * Detects the actions that user can access in loggedin case
+     * Tciket Ref: task_7
+     */
+    public static function detectLoginStatus(){
+        $userPages = ['login', 'register'];
+        $currentUrl = $_SERVER['REQUEST_URI'];
+        $urlParts = parse_url($currentUrl);
+        $currentPage = trim($urlParts['path'],'/');
+        //var_dump($urlParts);
+        if($_SESSION['login']){
+            //user loggedin
+            if(in_array($currentPage, $userPages)){
+                //redirect to 403 on user pages and allow other pages
+                header('Location: /forbidden');
+            }
+        }else{
+            if(!in_array($currentPage, $userPages)){
+                //redirect to login on all pages and allow user pages
+                header('Location: /login');
+            }
+        }
     }
 }

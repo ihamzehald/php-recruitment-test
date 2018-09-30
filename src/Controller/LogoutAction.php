@@ -1,6 +1,7 @@
 <?php
 
 namespace Snowdog\DevTest\Controller;
+use Snowdog\DevTest\Common\CommonFunctions;
 
 class LogoutAction
 {

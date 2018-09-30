@@ -58,11 +58,11 @@ class WebsiteManager
      * Get website by host name
      * Ticket Ref: task_6
      */
-    public function getByHost($name){
+    public function getByHost($name, $user_id){
 
         $hostLikeCondition = "%{$name}%";
 
-        $query = $this->database->prepare(" SELECT * FROM websites WHERE hostname LIKE ?");
+        $query = $this->database->prepare(" SELECT * FROM websites WHERE user_id = {$user_id} AND hostname LIKE ?");
         $query->bindParam(1, $hostLikeCondition, \PDO::PARAM_STR);
         $query->execute();
         return $query->fetch();

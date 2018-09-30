@@ -9,7 +9,8 @@ use Snowdog\DevTest\Common\CommonFunctions;
 use SnowDog\Tools\SitemapParser;
 
 /**
- * @author Hamza al Darawsheh 29 Sep 2018 <ihamzehald@gmail.com>
+ * @author Hamza al Darawsheh 29 Sep 2018 SitemapUploadAction
+ * @package Snowdog\DevTest\Controller<ihamzehald@gmail.com>
  * Class SitemapUploadAction
  * @package Snowdog\DevTest\Controller
  * Process sitemap from UI
@@ -42,10 +43,14 @@ class SitemapUploadAction
         }
         $this->websiteManager = $websiteManager;
         $this->pageManager = $pageManager;
+
+        CommonFunctions::detectLoginStatus();
+
     }
 
     public function execute()
     {
+
         $parser = new SitemapParser();
 
         $uploadDir = "../uploads/";
